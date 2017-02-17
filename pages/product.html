@@ -1,0 +1,31 @@
+<div layout-margin>
+  
+  <md-table-container>
+    <table md-table md-progress="promise">
+      <thead ng-if="!options.decapitate" md-head>
+        <tr md-row class="col_head">
+          <th md-column align-rule="left"><button ng-click=vm.toggleImage()> {{vm.showImage ? "Hide" : "Show"}} Image </button></th>
+          <th md-column align-rule="right">Product Name</th>
+          <th md-column align-rule="right">Code</th>
+          <th md-column align-rule="right">Cost</th>
+          <th md-column align-rule="right">Price</th>
+          <th md-column align-rule="right">Category</th>
+        </tr>
+      </thead>
+      <tbody md-body class="column_col">
+        <tr md-row class="col_head" ng-repeat="product in vm.products">
+          <td md-cell> 
+            <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}"
+            style="width:50px;margin:2px" 
+            title="{{product.productName}}">
+          </td>  
+          <td md-cell>{{product.productName}}</td>
+          <td md-cell>{{product.productCode}}</td>
+          <td md-cell>{{product.cost}}</td>
+          <td md-cell>{{product.price}}</td>
+          <td md-cell>{{product.category}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>
